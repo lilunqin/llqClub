@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profile</title>
+</head>
+<body>
+    <h1>用户资料页面</h1>
+
+    <a href="/user_setting">修改个人信息</a>
+
+    <div>
+        用户id： {{ user.id }}
+    </div>
+    <div>
+        用户名： {{ user.username }}
+    </div>
+    <div>
+        用户密码（加密过）：{{ user.password }}
+    </div>
+
+    <form method="post"
+      action="{{ url_for('.avatar_add')}}"
+      enctype="multipart/form-data"
+>
+    <input type="file" name="avatar">
+    <button type="submit">上传头像</button>
+    </form>
+
+    <img src="{{ user.image }} ">
+</body>
+</html>

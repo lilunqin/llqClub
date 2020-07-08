@@ -1,0 +1,20 @@
+server {
+    listen 80;
+
+    gzip on;
+    gzip_types  application/x-javascript text/css;
+
+    location /images {
+        alias /var/www/llqClub/images;
+#        alias /llqClub/images;
+    }
+
+    location /static {
+        alias /var/www/llqClub/static;
+#        alias /llqClub/static;
+    }
+
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+}

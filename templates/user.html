@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>个人主页</title>
+</head>
+<body>
+
+<div>
+    <a href="{{ url_for('topic.index') }}">主页</a>
+</div>
+
+<div>
+    <img src="{{ image }}" class="user_avatar" title="{{ username }}"/>
+</div>
+
+<div>{{ username }}</div>
+
+
+
+<div>最近创建的话题</div>
+
+{% for topic in created_topics %}
+    <div>
+    <a href="{{ url_for('topic.detail', id=topic.id) }}">
+        {{ topic.title }}
+    </a>
+    <span>
+        {{ topic.replies() | count }} / {{ topic.views }}
+    </span>
+    </div>
+{% endfor %}
+
+
+
+<span>最近参与的话题</span>
+<div>
+{% for topic in joined_topics %}
+    <div>
+    <a href="{{ url_for('topic.detail', id=topic.id) }}">
+        {{ topic.title }}
+    </a>
+    <span>
+        {{ topic.replies() | count }} / {{ topic.views }}
+    </span>
+    </div>
+{% endfor %}
+</div>
+
+
+
+</body>
+</html>
