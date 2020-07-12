@@ -1,6 +1,6 @@
 # bbs
 # 论坛项目
-个人项目
+个人项目部署地址：http://lilunqin.club/
 
 # 主要功能
 - 基于MVC原则实现
